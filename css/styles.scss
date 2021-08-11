@@ -1,0 +1,713 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overflow: hidden;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+}
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../Assets/restaurantbg.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  .overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(63, 60, 60, 0.6);
+    position: absolute;
+    z-index: 2;
+  }
+  .navbar {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    .logo {
+      margin-right: auto;
+      margin-left: 1.5rem;
+      font-size: 32px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        #462523 0%,
+        #cb9b51 22%,
+        #f6e27a 45%,
+        #f6f2c0 50%,
+        #f6e27a 55%,
+        #cb9b51 78%,
+        #462523 100%
+      );
+      position: absolute;
+    }
+    .nav-links {
+      display: flex;
+      color: white;
+      list-style-type: none;
+      right: 0;
+      width: 100%;
+      justify-content: flex-end;
+    }
+    .mobile-nav-links {
+      position: relative;
+      background-color: rgba(63, 60, 60, 0.8);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: 100;
+      transition: 0.4s ease-in-out;
+      display: none;
+      ul {
+        list-style-type: none;
+        height: 75%;
+        margin-top: 10%;
+        li {
+          height: 25%;
+          text-align: center;
+        }
+      }
+    }
+    .nav-link {
+      margin: 1rem 3rem 0 3rem;
+    }
+    a,
+    a:visited {
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s ease-in;
+    }
+    a:hover,
+    a:visited:hover {
+      color: #777;
+    }
+    .mobile-nav-icon {
+      position: absolute;
+      font-size: 32px;
+      color: white;
+      top: 25%;
+      right: 5%;
+      display: none;
+      z-index: 200;
+    }
+  }
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    .logo,
+    .tagline {
+      height: 100%;
+      margin: 3rem;
+    }
+    .logo {
+      font-size: 520px;
+      transform: translateX(25%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        #462523 0%,
+        #cb9b51 22%,
+        #f6e27a 45%,
+        #f6f2c0 50%,
+        #f6e27a 55%,
+        #cb9b51 78%,
+        #462523 100%
+      );
+    }
+    .tagline {
+      font-size: 64px;
+      width: 30%;
+      color: white;
+      text-align: center;
+      line-height: 1.65;
+      transform: translateX(-25%);
+    }
+  }
+}
+.food {
+  height: 150vh;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: -1;
+  transform-style: preserve-3d;
+  .fixed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    .text {
+      width: 475px;
+      font-size: 32px;
+      text-align: center;
+      color: white;
+    }
+    #restaurantimg {
+      width: 475px;
+      height: 25%;
+      background-image: url("../Assets/restaurant1.jpg");
+      background-size: cover;
+      box-shadow: 6px 6px 2px 1px rgba(63, 60, 60, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .CTA {
+      height: 60px;
+      width: 265px;
+      background-color: #bd1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 50px;
+      h1 {
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+  .paralax {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    .paralax-img {
+      width: 496px;
+      height: 100%;
+      margin: 10px;
+    }
+    #foodimg1 {
+      background-image: url("../Assets/food1.jpg");
+      background-size: cover;
+      box-shadow: 6px 6px 2px 1px rgba(63, 60, 60, 0.5);
+    }
+    #foodimg2 {
+      background-image: url("../Assets/food2.jpg");
+      background-size: cover;
+      box-shadow: 6px 6px 2px 1px rgba(63, 60, 60, 0.5);
+    }
+    #foodimg3 {
+      background-image: url("../Assets/food3.jpg");
+      background-size: cover;
+      box-shadow: 6px 6px 2px 1px rgba(63, 60, 60, 0.5);
+    }
+  }
+}
+.food::before {
+  content: "";
+  width: 100vw;
+  height: 150vh;
+  top: 0;
+  left: 0;
+  background-image: url("../Assets/foodbg.jpg");
+  background-size: cover;
+  position: absolute;
+  z-index: -2;
+  transform: translateZ(-1px) scale(2);
+}
+.drinks {
+  height: 90vh;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  .main {
+    height: 100%;
+    display: flex;
+    .left {
+      height: 100%;
+      width: 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10%;
+      .text {
+        text-align: center;
+        font-size: 48px;
+      }
+      #drinkslide {
+        color: gray;
+        display: block;
+        margin-top: 2rem;
+      }
+    }
+    .right {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 5%;
+      .drinksimg {
+        height: 75%;
+        width: 75%;
+        background-color: blue;
+        background-image: url("../Assets/drink1.jpg");
+        background-size: cover;
+        background-position: center center;
+        box-shadow: 3px 3px 2px 1px rgba(63, 60, 60, 0.5);
+      }
+      .CTA {
+        height: 60px;
+        width: 265px;
+        background-color: #bd1e1e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 50px;
+        h1 {
+          color: white;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+.events::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url("../Assets/eventbg.jpg");
+  background-size: cover;
+  position: absolute;
+  z-index: -2;
+  transform: translateZ(-1px) scale(2);
+}
+.events {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  color: #fff;
+  .left {
+    height: 90%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem;
+    .text {
+      font-size: 64px;
+      text-align: center;
+    }
+    .CTA {
+      height: 60px;
+      width: 265px;
+      background-color: #bd1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 50px;
+      h1 {
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+  .right {
+    height: 90%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3rem;
+    .eventsimg {
+      height: 350px;
+      width: 500px;
+      background-image: url("../Assets/event1.jpg");
+      background-size: cover;
+      box-shadow: 3px 3px 2px 1px rgba(63, 60, 60, 0.5);
+    }
+    .text {
+      font-size: 24px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+}
+.directions {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  .main {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    .text {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      .main {
+        display: flex;
+        align-items: center;
+        width: 75%;
+        height: 170px;
+        font-size: 32px;
+      }
+      .sub {
+        display: flex;
+        align-items: center;
+        width: 75%;
+        height: 500px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+    .map {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .iframe {
+        width: 75%;
+        height: 85%;
+        border: solid 2px black;
+        overflow: hidden;
+      }
+    }
+  }
+  .links {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .CTA {
+      height: 60px;
+      width: 265px;
+      background-color: #bd1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 50px;
+      h1 {
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.footer {
+  height: 50vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+  padding: 2rem;
+  .footer-social-section {
+    height: 15%;
+    i {
+      font-size: 2rem;
+      margin: 0.3rem;
+    }
+  }
+  .footer-link-section {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    .headers {
+      display: flex;
+      justify-content: space-evenly;
+      h3 {
+        width: 100%;
+      }
+    }
+    .links {
+      display: flex;
+      justify-content: space-evenly;
+      ul {
+        list-style-type: none;
+        width: 100%;
+      }
+      li {
+        line-height: 1.5rem;
+      }
+    }
+  }
+  .footer-newsletter-section {
+    display: flex;
+    justify-content: flex-end;
+    table {
+      width: 200px;
+      padding: 1rem;
+      border-radius: 25px;
+      background-color: gray;
+      td {
+        padding: 0 0.5rem 0 0.5rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .hero {
+    .navbar {
+      .nav-links {
+        display: none;
+      }
+      .mobile-nav-icon {
+        display: block;
+      }
+    }
+    .main {
+      flex-direction: column;
+      .logo,
+      .tagline {
+        width: 100%;
+        transform: translateX(0);
+        font-size: 32px;
+      }
+      .logo {
+        font-size: 240px;
+      }
+    }
+  }
+  .food {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    .fixed {
+      flex-direction: column;
+      width: 100%;
+      .text {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 120%;
+        font-size: 32px;
+        text-align: center;
+        color: white;
+        background-image: url("../Assets/event.jpg");
+      }
+      #restaurantimg {
+        width: 100%;
+        height: 120%;
+      }
+      .CTA {
+        position: absolute;
+      }
+    }
+    .paralax {
+      height: 0%;
+      #foodimg1,
+      #foodimg2,
+      #foodimg3 {
+        background-image: none;
+      }
+    }
+  }
+  .food::before {
+    height: 0%;
+    background-image: none;
+  }
+  .drinks {
+    .main {
+      .right {
+        .drinksimg {
+          background-position: center;
+        }
+      }
+    }
+  }
+  .directions {
+    .links {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .CTA {
+        margin: 0.75rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 950px) {
+  .events::before {
+    height: 0%;
+    background-image: none;
+  }
+  .events {
+    height: auto;
+    flex-direction: column;
+    background-color: #000;
+    align-items: center;
+    .left {
+      .text {
+        margin: 1rem 0 2rem 0;
+      }
+    }
+    .right {
+      .eventsimg {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  .directions {
+    height: auto;
+    .main {
+      flex-direction: column;
+      margin: 1rem;
+      .text {
+        width: 100%;
+        .main {
+          display: flex;
+          align-items: center;
+          width: 75%;
+          height: auto;
+          font-size: 32px;
+        }
+        .sub {
+          display: flex;
+          align-items: center;
+          width: 75%;
+          height: auto;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      }
+      .map {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .hero {
+    .main {
+      flex-direction: column;
+      .logo,
+      .tagline {
+        width: 100%;
+        transform: translateX(0);
+        font-size: 32px;
+      }
+      .logo {
+        font-size: 240px;
+      }
+    }
+  }
+  .food {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    .fixed {
+      flex-direction: column;
+      width: 100%;
+      .text {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 120%;
+        font-size: 32px;
+        text-align: center;
+        color: white;
+        background-image: url("../Assets/event.jpg");
+      }
+      #restaurantimg {
+        width: 100%;
+        height: 120%;
+      }
+      .CTA {
+        position: absolute;
+      }
+    }
+    .paralax {
+      height: 0%;
+      #foodimg1,
+      #foodimg2,
+      #foodimg3 {
+        background-image: none;
+      }
+    }
+  }
+  .food::before {
+    height: 0%;
+    background-image: none;
+  }
+  .drinks {
+    height: 100%;
+    .main {
+      height: 100%;
+      flex-direction: column;
+      .left {
+        width: 100%;
+      }
+      .right {
+        width: 100%;
+        justify-content: space-evenly;
+        padding: 5%;
+        .drinksimg {
+          height: 100%;
+          background-image: url("../Assets/drink1.jpg");
+          background-size: cover;
+          background-position: center center;
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}
